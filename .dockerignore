@@ -1,0 +1,36 @@
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Data directories (will be mounted as volumes)
+data/
+uploads/
+
+# Test files
+test_*.py
+*_test.py
+
+# Documentation
+*.md
+!README.md

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  doc-sign:
+    build: .
+    container_name: doc-sign-api
+    ports:
+      - "8000:8000"
+    environment:
+      - JWT_SECRET=${JWT_SECRET:-your-secret-key-change-this-in-production}
+      - DATABASE_PATH=/app/data/documents.db
+      - UPLOAD_DIR=/app/uploads
+      - BASE_URL=http://localhost:8000
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
